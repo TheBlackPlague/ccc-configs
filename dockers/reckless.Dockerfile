@@ -31,6 +31,7 @@ ARG CACHE_BUST
 # Clone and build from main
 RUN git clone --branch main https://github.com/codedeliveryservice/Reckless && \
     cd Reckless && \
+    export RUSTFLAGS="-Ctarget-cpu=native" && \
     cargo pgo instrument && \
     cargo pgo run -- bench && \
     cargo pgo optimize && \
