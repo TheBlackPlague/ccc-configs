@@ -14,14 +14,14 @@ ARG CACHE_BUST
 # ------------------------------------------------------------------------------
 
 # Determine the default Network via the API
-RUN echo $(curl http://chess.grantnet.us/api/networks/Igel/ |jq -r '.default.sha256') >> /.default-net
+RUN echo $(curl https://chess.grantnet.us/api/networks/Igel/ |jq -r '.default.sha256') >> /.default-net
 
 # Download the default Network, using GRANTNET_USER and GRANTNET_PASS secrets
 RUN --mount=type=secret,id=GRANTNET_USER --mount=type=secret,id=GRANTNET_PASS \
     curl -X POST \
        -F "username=$(cat /run/secrets/GRANTNET_USER)" \
        -F "password=$(cat /run/secrets/GRANTNET_PASS)" \
-       http://chess.grantnet.us/api/networks/Igel/$(cat /.default-net)/ \
+       https://chess.grantnet.us/api/networks/Igel/$(cat /.default-net)/ \
        --output igel.nn
 
 # Clone and build from master
