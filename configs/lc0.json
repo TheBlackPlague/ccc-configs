@@ -29,7 +29,7 @@
     "WDLDrawRateReference": "0.64",
     "MaxOutOfOrderEvalsFactor": "8",
     "SmartPruningMinimumBatches": "300",
-    "MinimumRemainingPickingWork": "8"
+    "MinimumRemainingPickingWork": "4"
   },
   "timemargin": 1000
 }
