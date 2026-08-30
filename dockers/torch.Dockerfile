@@ -1,4 +1,4 @@
-FROM alpine:3.22
+FROM alpine:3.24
 
 ARG DEBIAN_FRONTEND=noninteractive
 
@@ -13,7 +13,7 @@ ARG CACHE_BUST
 
 # ------------------------------------------------------------------------------
 
-RUN ln -s /usr/bin/llvm-profdata /usr/bin/llvm-profdata-20
+RUN ln -s /usr/bin/llvm-profdata /usr/bin/llvm-profdata-22
 
 RUN --mount=type=secret,id=TORCHBENCH_USER \
     --mount=type=secret,id=TORCHBENCH_PASS \
