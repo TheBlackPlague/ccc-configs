@@ -1,8 +1,8 @@
-FROM silkeh/clang:16-bullseye
+FROM ubuntu:24.04
 
 ARG DEBIAN_FRONTEND=noninteractive
 
-RUN apt update && apt-get -y install git make cmake wget curl
+RUN apt update && apt-get -y install git make cmake wget curl gcc g++ clang llvm lld
 
 # ------------------------------------------------------------------------------
 
